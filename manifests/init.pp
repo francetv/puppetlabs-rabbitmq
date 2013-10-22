@@ -23,6 +23,7 @@ class rabbitmq(
   $package_ensure             = $rabbitmq::params::package_ensure,
   $package_gpg_key            = $rabbitmq::params::package_gpg_key,
   $package_name               = $rabbitmq::params::package_name,
+  $package_prefer_distro      = $rabbitmq::params::package_prefer_distro,
   $package_provider           = $rabbitmq::params::package_provider,
   $package_source             = $rabbitmq::params::package_source,
   $plugin_dir                 = $rabbitmq::params::plugin_dir,
@@ -53,6 +54,7 @@ class rabbitmq(
   validate_string($package_ensure)
   validate_string($package_gpg_key)
   validate_string($package_name)
+  validate_bool($package_prefer_distro)
   validate_string($package_provider)
   validate_string($package_source)
   validate_re($version, '^\d+\.\d+\.\d+(-\d+)*$') # Allow 3 digits and optional -n postfix.

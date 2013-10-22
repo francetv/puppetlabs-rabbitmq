@@ -43,6 +43,7 @@ class rabbitmq::params {
   $management_port            = '15672'
   $package_apt_pin            = ''
   $package_gpg_key            = 'http://www.rabbitmq.com/rabbitmq-signing-key-public.asc'
+  $package_prefer_distro      = false
   $service_ensure             = 'running'
   $service_manage             = true
   #config 
