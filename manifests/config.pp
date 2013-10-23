@@ -6,6 +6,7 @@ class rabbitmq::config {
   $config                     = $rabbitmq::config
   $config_cluster             = $rabbitmq::config_cluster
   $config_path                = $rabbitmq::config_path
+  $config_management          = $rabbitmq::config_management
   $config_mirrored_queues     = $rabbitmq::config_mirrored_queues
   $config_stomp               = $rabbitmq::config_stomp
   $default_user               = $rabbitmq::default_user
@@ -13,6 +14,8 @@ class rabbitmq::config {
   $env_config                 = $rabbitmq::env_config
   $env_config_path            = $rabbitmq::env_config_path
   $erlang_cookie              = $rabbitmq::erlang_cookie
+  $management_port            = $rabbitmq::management_port
+  $management_log_dir         = $rabbitmq::management_log_dir
   $node_ip_address            = $rabbitmq::node_ip_address
   $plugin_dir                 = $rabbitmq::plugin_dir
   $port                       = $rabbitmq::port

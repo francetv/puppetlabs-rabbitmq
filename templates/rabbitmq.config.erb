@@ -31,5 +31,15 @@
   <%- end -%>
   ]}
 <%- end -%>
+<% if @config_management -%>,
+  {rabbitmq_management,
+    [
+      {listener,              [{port, <%= @management_port %>}]}
+  <% if @management_log_dir -%>,
+      {http_log_dir,          "<%= @management_log_dir %>"}
+  <%- end -%>
+    ]
+  },
+<%- end -%>
 ].
 % EOF

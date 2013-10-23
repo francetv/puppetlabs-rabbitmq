@@ -6,6 +6,7 @@ class rabbitmq(
   $cluster_nodes              = $rabbitmq::params::cluster_nodes,
   $config                     = $rabbitmq::params::config,
   $config_cluster             = $rabbitmq::params::config_cluster,
+  $config_management          = $rabbitmq::params::config_management,
   $config_mirrored_queues     = $rabbitmq::params::config_mirrored_queues,
   $config_path                = $rabbitmq::params::config_path,
   $config_stomp               = $rabbitmq::params::config_stomp,
@@ -17,6 +18,7 @@ class rabbitmq(
   $erlang_cookie              = $rabbitmq::params::erlang_cookie,
   $erlang_manage              = $rabbitmq::params::erlang_manage,
   $manage_service             = $rabbitmq::params::manage_service,
+  $management_log_dir         = $rabbitmq::params::management_log_dir,
   $management_port            = $rabbitmq::params::management_port,
   $node_ip_address            = $rabbitmq::params::node_ip_address,
   $package_apt_pin            = $rabbitmq::params::package_apt_pin,
@@ -65,6 +67,7 @@ class rabbitmq(
   validate_string($config)
   validate_absolute_path($config_path)
   validate_bool($config_cluster)
+  validate_bool($config_management)
   validate_bool($config_mirrored_queues)
   validate_bool($config_stomp)
   validate_string($default_user)
@@ -73,6 +76,7 @@ class rabbitmq(
   validate_string($env_config)
   validate_absolute_path($env_config_path)
   validate_string($erlang_cookie)
+  validate_string($management_log_dir)
   validate_re($management_port, '\d+')
   validate_string($node_ip_address)
   validate_absolute_path($plugin_dir)

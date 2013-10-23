@@ -52,6 +52,7 @@ class rabbitmq::params {
   $cluster_nodes              = []
   $config                     = 'rabbitmq/rabbitmq.config.erb'
   $config_cluster             = false
+  $config_management          = false
   $config_mirrored_queues     = false
   $config_path                = '/etc/rabbitmq/rabbitmq.config'
   $config_stomp               = false
@@ -62,6 +63,8 @@ class rabbitmq::params {
   $env_config_path            = '/etc/rabbitmq/rabbitmq-env.conf'
   $erlang_cookie              = 'EOKOWXQREETZSHFNTPEY'
   $manage_service             = true
+  $management_port            = '15672'
+  $management_log_dir         = '/var/log/rabbitmq'
   $node_ip_address            = 'UNSET'
   $plugin_dir                 = "/usr/lib/rabbitmq/lib/rabbitmq_server-${version}/plugins"
   $port                       = '5672'

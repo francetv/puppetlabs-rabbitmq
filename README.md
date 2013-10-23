@@ -111,6 +111,18 @@ class { 'rabbitmq':
 }
 ```
 
+### Management
+To use RabbitmQ management features, use the rabbitmq::server
+parameters `config_management`, `management_port` and `management_log_dir`
+
+```puppet
+class { 'rabbitmq':
+  config_management  => true, 
+  management_port    => '15672',
+  management_log_dir => '/var/log/rabbitmq',
+}
+```
+
 ##Reference
 
 ##Classes
@@ -149,6 +161,10 @@ The file to use as the rabbitmq.config template.
 
 Boolean to enable or disable clustering support.
 
+####`config_management`
+
+Boolean to enable or disable management.
+
 ####`config_mirrored_queues`
 
 Boolean to enable or disable mirrored queues.
@@ -185,6 +201,14 @@ If true then we include an erlang module.
 
 To set config variables in rabbitmq.config
 
+####`management_port`
+
+The port for the RabbitMQ management interface.
+
+####`management_log_dir`
+
+The log directory to use for the RabbitMQ management interface.
+
 ####`node_ip_address`
 
 The value of RABBITMQ_NODE_IP_ADDRESS in rabbitmq_env.config
@@ -217,10 +241,6 @@ Location of RabbitMQ plugins.
 ####`port`
 
 The RabbitMQ port.
-
-####`management_port`
-
-The port for the RabbitMQ management interface.
 
 ####`service_ensure`
 
