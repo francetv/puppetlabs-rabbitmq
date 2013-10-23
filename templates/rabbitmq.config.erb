@@ -31,7 +31,7 @@
   <%- end -%>
   ]}
 <%- end -%>
-<% if @config_management -%>,
+<% if @admin_enable -%>,
   {rabbitmq_management,
     [
       {listener,              [{port, <%= @management_port %>}]}

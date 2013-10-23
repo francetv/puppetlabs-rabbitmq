@@ -40,7 +40,6 @@ class rabbitmq::params {
   #install
   $admin_enable               = true
   $erlang_manage              = false
-  $management_port            = '15672'
   $package_apt_pin            = ''
   $package_gpg_key            = 'http://www.rabbitmq.com/rabbitmq-signing-key-public.asc'
   $package_prefer_distro      = false
@@ -52,7 +51,6 @@ class rabbitmq::params {
   $cluster_nodes              = []
   $config                     = 'rabbitmq/rabbitmq.config.erb'
   $config_cluster             = false
-  $config_management          = false
   $config_mirrored_queues     = false
   $config_path                = '/etc/rabbitmq/rabbitmq.config'
   $config_stomp               = false

@@ -113,11 +113,11 @@ class { 'rabbitmq':
 
 ### Management
 To use RabbitmQ management features, use the rabbitmq::server
-parameters `config_management`, `management_port` and `management_log_dir`
+parameters `admin_enable`, `management_port` and `management_log_dir`
 
 ```puppet
 class { 'rabbitmq':
-  config_management  => true, 
+  admin_enable       => true, 
   management_port    => '15672',
   management_log_dir => '/var/log/rabbitmq',
 }
@@ -160,10 +160,6 @@ The file to use as the rabbitmq.config template.
 ####`config_cluster`
 
 Boolean to enable or disable clustering support.
-
-####`config_management`
-
-Boolean to enable or disable management.
 
 ####`config_mirrored_queues`
 
