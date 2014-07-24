@@ -5,6 +5,7 @@ module Puppet::Parser::Functions
         nameinstance=args[1]
         vtype = args[2]
         cpt=0
+        Puppet.debug("VALUE = #{nameinstance} - #{vtype} - listip[0] ")
         if vtype == "full" 
             listip['ip'].each do |element|
                 if cpt == 0
@@ -12,7 +13,7 @@ module Puppet::Parser::Functions
                 else
                   tbl=tbl+", #{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
                 end
-            debug("VALUECP = #{cpt}")
+            Puppet.debug("VALUECP = #{cpt}")
             cpt=cpt++
             end
         else
@@ -22,7 +23,7 @@ module Puppet::Parser::Functions
                 end
             end
         end
-        debug("VALUE = #{tbl}")
+        Puppet.debug("VALUE = #{tbl}")
         tbl
     end
 end
