@@ -12,6 +12,7 @@ module Puppet::Parser::Functions
                 else
                   tbl=tbl+", #{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
                 end
+            debug("VALUECP = #{cpt}")
             cpt=cpt++
             end
         else
@@ -21,6 +22,7 @@ module Puppet::Parser::Functions
                 end
             end
         end
+        debug("VALUE = #{tbl}")
         tbl
     end
 end
