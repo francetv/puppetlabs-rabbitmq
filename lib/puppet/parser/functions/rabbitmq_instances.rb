@@ -6,12 +6,12 @@ module Puppet::Parser::Functions
         vtype = args[2]
         if vtype == "full" 
             listip['ip'].each do |element|
-                tbl << " #{nameinstance}+"@"+#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
+                tbl << "#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
             end
         else
             listip['ip'].each do |element|
                 if element == lookupvar('ipaddress') 
-                    tbl << " #{nameinstance}+"@"+#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
+                    tbl << "#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
                 end
             end
         end
