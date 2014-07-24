@@ -1,29 +1,29 @@
 module Puppet::Parser::Functions
-    newfunction(:rabbitmq_instances,:type => :rvalue) do |args|
-        tbl=""
-        listip = args[0]
-        nameinstance=args[1]
-        vtype = args[2]
-        cpt=0
-        Puppet.debug("VALUE = #{nameinstance} - #{vtype} - listip[0] ")
-        if vtype == "full" 
-            listip['ip'].each do |element|
-                if cpt == 0
-                  tbl=tbl+"#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
-                else
-                  tbl=tbl+", #{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
-                end
-            Puppet.debug("VALUECP = #{cpt}")
-            cpt=cpt++
-            end
+  newfunction(:rabbitmq_instances,:type => :rvalue) do |args|
+    tbl=""
+    listip = args[0]
+    nameinstance=args[1]
+    vtype = args[2]
+    cpt=0
+    Puppet.debug("VALUE = #{nameinstance} - #{vtype} - #{listip[0]} ")
+    if vtype == "full" 
+      listip['ip'].each do |element|
+        if cpt == 0
+          tbl=tbl+"#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
         else
-            listip['ip'].each do |element|
-                if element == lookupvar('ipaddress') 
-                    tbl = "#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
-                end
-            end
+          tbl=tbl+", #{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
         end
-        Puppet.debug("VALUE = #{tbl}")
-        tbl
+        Puppet.debug("VALUECP = #{cpt}")
+        cpt=cpt+1
+      end
+     else
+      listip['ip'].each do |element|
+        if element == lookupvar('ipaddress') 
+          tbl = "#{nameinstance}"+"@"+"#{lookupvar('project')}-#{lookupvar('ftven_env')}-#{lookupvar('role')}-#{listip[0]}"
+        end
+      end
     end
+    Puppet.debug("VALUE = #{tbl}")
+    tbl
+  end
 end
